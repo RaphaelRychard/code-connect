@@ -16,13 +16,25 @@ body {
   margin: 56px auto;
   display: flex;
   gap: 28px;
-  height: 100vh;
 }
 
 .main-container {
-  width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 40px;
 }
 
+.div-links .links_next,
+.div-links .links_prev {
+  text-align: center;
+  margin-top: 40px;
+  display: block;
+}
+
+.links_next {
+  color: #9DE482;
+}
+
+.links_prev {
+  color: gray;
+}
