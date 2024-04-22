@@ -4,7 +4,7 @@ import { Aside } from "@/components/Aside";
 import './globals.css'
 
 const prompt = Prompt({
-  weight: ['400', '600'],
+  weight: ['400', '600', '700', '800'],
   subsets: ['latin'],
   display: 'swap',
 })
@@ -16,8 +16,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-br" className={prompt.className}>
-      <body>
+    <html lang="pt-br" className={prompt.className} >
+      <body suppressHydrationWarning={true}>
         <div className="app-container">
           <Aside />
           {children}

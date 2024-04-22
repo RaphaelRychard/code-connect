@@ -12,6 +12,8 @@
 
 .header figure {
   margin: 0;
+
+ 
 }
 
 .body {
@@ -41,4 +43,24 @@
 
 .footer {
   padding: 16px;
+}
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  transition: all linear 120ms;
+  
+  &:hover {
+    transform: scale(103%);
+  }
+
+  &:active {
+    transform: scale(97%);
+  }
+
+  opacity: 80%;
+  
+  &:hover {
+    opacity: 100%;
+  }
 }
