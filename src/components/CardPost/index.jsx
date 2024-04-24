@@ -24,10 +24,11 @@ export const CardPost = ({ post }) => {
           <p className={style.body}>{post.body}</p>
         </section>
         <footer className={style.footer}>
-          <Avatar
+        <Avatar
             imageSrc={post.author.avatar}
             name={post.author.username}
           />
+          
         </footer>
       </article>
     </Link>

@@ -26,17 +26,28 @@ body {
   grid-gap: 40px;
 }
 
+.div-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
 .div-links .links_next,
 .div-links .links_prev {
   text-align: center;
   margin-top: 40px;
   display: block;
+  text-decoration: none;
+
 }
 
 .links_next {
   color: #9DE482;
+  border-bottom: solid 1px #9DE482;
 }
 
 .links_prev {
-  color: gray;
+  color: #BCBCBC;
+  border-bottom: solid 1px #BCBCBC;
 }

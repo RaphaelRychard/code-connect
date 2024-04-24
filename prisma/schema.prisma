@@ -22,7 +22,7 @@ model User {
 }
 
 model Post {
-  id        Int      @id
+  id        Int      @id @default(autoincrement())
   cover     String
   title     String
   slug      String   @unique
