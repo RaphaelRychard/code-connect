@@ -7,27 +7,40 @@ import logger from "@/logger";
 import { Avatar } from '@/components/Avatar';
 
 import style from './slug.module.css'
-import search from './search.png';
+
+import schema from '../../../../prisma/db';
+import { redirect } from 'next/navigation';
 
 async function getPostBySlug(slug) {
-  const url = `http://localhost:3042/posts?slug=${slug}`
-  const response = await fetch(url)
-  if (!response.ok) {
-    logger.error('Ops, alguma coisa correu mal')
-    return {}
+
+  try {
+    const post = await schema.post.findFirst({
+      where: {
+        slug
+      },
+      include: {
+        author: true
+      }
+    })
+
+    if(!post) {
+      throw new Error(`Post com slug ${slug} não foi encontrado`)
+    }
+  
+    const processedContent = await remark()
+      .use(html)
+      .process(post.markdown);
+    const contentHtml = processedContent.toString();
+    post.markdown = contentHtml
+    return post
+  } catch (error) {
+    logger.error('Falha ao objter o post com slug: ', {
+      slug,
+      error
+    })
   }
-  logger.info('Posts obtidos com sucesso')
-  const data = await response.json()
-  if (data.length == 0) {
-    return {}
-  }
-  const post = data[0];
-  const processedContent = await remark()
-    .use(html)
-    .process(post.markdown);
-  const contentHtml = processedContent.toString();
-  post.markdown = contentHtml
-  return post
+
+  redirect('/not-found')
 }
 
 const PagePost = async ({ params }) => {
@@ -35,26 +48,8 @@ const PagePost = async ({ params }) => {
 
   return (
     <>
-
       <div className={style.container}>
-        <div className={style.container_search}>
-          <div className={style.search}>
-            <label htmlFor='search' className={style.searchIcon}>
-              <Image src={search}
-                width={'32px'}
-                height={'32px'}
-                title='Pesquisar'
-              />
-            </label>
-            <input
-              id='search'
-              className={style.input}
-              type="search"
-              placeholder='Digite o que você procura
-            '/>
-          </div>
-          <button className={style.button}>Buscar</button>
-        </div>
+      
         <article className={style.article}>
           <header className={style.header}>
             <figure className={style.figure}>

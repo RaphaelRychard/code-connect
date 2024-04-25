@@ -3,6 +3,7 @@ import { CardPost } from '@/components/CardPost';
 import './globals.css'
 import Link from 'next/link';
 import schema from '../../prisma/db';
+import Search from '@/components/Search';
 
 async function getAllPosts(page) {
   try {
@@ -16,7 +17,7 @@ async function getAllPosts(page) {
     const posts = await schema.post.findMany({
       take: perPage,
       skip,
-      orderBy: { createdAt: 'desc'},
+      orderBy: { createdAt: 'desc' },
       include: {
         author: true
       }
