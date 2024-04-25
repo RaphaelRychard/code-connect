@@ -51,8 +51,12 @@ export default async function Home({ searchParams }) {
           {posts.map(post => <CardPost key={post.id} post={post} />)}
         </div>
         <div className='div-links'>
-          {prev && <Link className='links_prev' href={`/?page=${prev}`}>Pagína Enterior</Link>}
-          {next && <Link className='links_next' href={`/?page=${next}`}>Proxima Pagína</Link>}
+          {prev && <Link className='links_prev' href={{ pathname: '/', query: { page: prev, q: searchTerm } }}>
+            Pagína Enterior
+          </Link>}
+          {next && <Link className='links_next' href={{ pathname: '/', query: { page: next, q: searchTerm } }}>
+            Proxima Pagína
+          </Link>}
         </div>
       </main>
     </>
