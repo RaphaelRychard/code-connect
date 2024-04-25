@@ -2,7 +2,7 @@ import { Prompt } from 'next/font/google'
 
 import { Aside } from "@/components/Aside";
 import './globals.css'
-import Search from '@/components/Search';
+import SearchForm from '@/components/SearchForm';
 
 const prompt = Prompt({
   weight: ['400', '600', '700', '800'],
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         <div className='aside-container'>
           <Aside/>
           <div className="app-container">
-            <Search />
+            <SearchForm />
             {children}
           </div>
         </div>
