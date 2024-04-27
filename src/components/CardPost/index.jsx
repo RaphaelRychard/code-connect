@@ -3,13 +3,14 @@ import Image from "next/image"
 import { Avatar } from "../Avatar"
 import Link from 'next/link'
 
-import { incrementThumbsUp } from '@/actions'
+import { incrementThumbsUp, postComment } from '@/actions'
 import { ThumbsUpButton } from './ThumbsUpButton'
 import { ModalComment } from '../ModalComment'
 
 export const CardPost = ({ post }) => {
 
   const submitThumbsUp = incrementThumbsUp.bind(null, post);
+  const submitComment = postComment.bind(null, post);
 
   return (
     <div className={style.cardEffects}>
@@ -33,7 +34,7 @@ export const CardPost = ({ post }) => {
           </div>
         </section>
         <footer className={style.footer}>
-          <div>
+          <div className={style.footer_container}>
             <form action={submitThumbsUp}>
               <ThumbsUpButton />
               <p style={{ color: 'white' }}>
@@ -41,7 +42,7 @@ export const CardPost = ({ post }) => {
               </p>
             </form>
             <div>
-              <ModalComment />
+              <ModalComment action={submitComment} />
               <p>
                 {post.comments.length}
               </p>

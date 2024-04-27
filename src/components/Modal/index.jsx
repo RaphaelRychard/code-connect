@@ -8,7 +8,7 @@ const Modal = forwardRef(({ children}, ref) => {
   const dialogRef = useRef(null)
 
   const closeModal = () => {
-      dialogRef.current.cloes()
+      dialogRef.current.close()
   }
 
   const openModal = () => {
@@ -25,7 +25,9 @@ const Modal = forwardRef(({ children}, ref) => {
   return (
     <dialog ref={dialogRef} className={styles.dialog}>
         <header className={styles.header}>
-          <button>X</button>
+          <button onClick={closeModal}>
+            X
+          </button>
         </header>
         {children}
     </dialog>

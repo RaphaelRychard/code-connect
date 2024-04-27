@@ -52,6 +52,12 @@
   }
 }
 
+.footer_container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .cardEffects {
   text-decoration: none;
   transition: all linear 120ms;

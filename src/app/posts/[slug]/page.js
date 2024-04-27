@@ -11,6 +11,11 @@ import style from './slug.module.css'
 import schema from '../../../../prisma/db';
 import { redirect } from 'next/navigation';
 
+import { incrementThumbsUp, postComment } from '@/actions'
+import { ThumbsUpButton } from '@/components/CardPost/ThumbsUpButton';
+import { ModalComment } from '@/components/ModalComment';
+
+
 async function getPostBySlug(slug) {
 
   try {
@@ -24,10 +29,10 @@ async function getPostBySlug(slug) {
       }
     })
 
-    if(!post) {
+    if (!post) {
       throw new Error(`Post com slug ${slug} não foi encontrado`)
     }
-  
+
     const processedContent = await remark()
       .use(html)
       .process(post.markdown);
@@ -47,10 +52,13 @@ async function getPostBySlug(slug) {
 const PagePost = async ({ params }) => {
   const post = await getPostBySlug(params.slug)
 
+  const submitThumbsUp = incrementThumbsUp.bind(null, post);
+  const submitComment = postComment.bind(null, post);
+
   return (
     <>
       <div className={style.container}>
-      
+
         <article className={style.article}>
           <header className={style.header}>
             <figure className={style.figure}>
@@ -70,6 +78,20 @@ const PagePost = async ({ params }) => {
             </div>
 
             <footer className={style.footer}>
+              <div className={style.footer_container}>
+                <form action={submitThumbsUp}>
+                  <ThumbsUpButton />
+                  <p style={{ color: 'white' }}>
+                    {post.like}
+                  </p>
+                </form>
+                <div>
+                  <ModalComment action={submitComment} />
+                  <p>
+                    {post.comments.length}
+                  </p>
+                </div>
+              </div>
               <Avatar
                 imageSrc={post.author.avatar}
                 name={post.author.username}
