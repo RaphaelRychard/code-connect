@@ -33,8 +33,8 @@ model Post {
   udatedAt  DateTime  @updatedAt
   authorId  Int
   author    User      @relation(fields: [authorId], references: [id])
-  Comment   Comment[]
-  like     Int       @default(0)
+  comments  Comment[]
+  like      Int       @default(0)
 }
 
 model Comment {

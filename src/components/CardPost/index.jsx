@@ -5,8 +5,9 @@ import Link from 'next/link'
 
 import { incrementThumbsUp } from '@/actions'
 import { ThumbsUpButton } from './ThumbsUpButton'
+import { ModalComment } from '../ModalComment'
 
-export const CardPost = ({ post }) => {
+const CardPost = ({ post }) => {
 
   const submitThumbsUp = incrementThumbsUp.bind(null, post);
 
@@ -34,11 +35,17 @@ export const CardPost = ({ post }) => {
         <footer className={style.footer}>
           <div>
             <form action={submitThumbsUp}>
-                <ThumbsUpButton />
+              <ThumbsUpButton />
+              <p style={{ color: 'white' }}>
+                {post.like}
+              </p>
             </form>
-            <p style={{color: 'white'}}>
-              {post.like}
-            </p>
+            <div>
+              <ModalComment />
+              <p>
+                {post.comments.length}
+              </p>
+            </div>
           </div>
           <Avatar
             imageSrc={post.author.avatar}
@@ -50,3 +57,4 @@ export const CardPost = ({ post }) => {
   )
 }
 
+export default CardPost;

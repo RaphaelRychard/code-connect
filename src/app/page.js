@@ -3,6 +3,7 @@ import { CardPost } from '@/components/CardPost';
 import './globals.css'
 import Link from 'next/link';
 import schema from '../../prisma/db';
+import Modal from '@/components/Modal';
 
 async function getAllPosts(page, searchTerm) {
   try {
@@ -28,7 +29,8 @@ async function getAllPosts(page, searchTerm) {
       where,
       orderBy: { id: 'desc' },
       include: {
-        author: true
+        author: true,
+        comments: true
       }
     })
 
@@ -47,7 +49,6 @@ export default async function Home({ searchParams }) {
   return (
     <>
       <main>
-       
         <div className="main-container">
           {posts.map(post => <CardPost key={post.id} post={post} />)}
         </div>
