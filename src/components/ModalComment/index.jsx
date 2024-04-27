@@ -1,28 +1,34 @@
 'use client'
 
+import styles from './commentmodal.module.css'
+
 import { useRef } from "react"
+import { Subheading } from "../Subheading"
+import { Textarea } from "../Textarea"
+import { SubmitButton } from "../SubmitButton"
 import { IconButton } from "../IconButton"
+import { Modal } from "../Modal"
 import { Chat } from "../Icons/Chat"
-import Modal from "../Modal"
-import styles from './modalComment.module.css'
-import SubmitButton from "../SubmitButton"
+
 
 export const ModalComment = ({ action }) => {
   const modalRef = useRef(null)
-
   return (
     <>
       <Modal ref={modalRef}>
         <form action={action} onSubmit={() => modalRef.current.closeModal()}>
-          <textarea name="text" rows="8" className={styles.textarea}></textarea>
-          <div className={styles.container}>
+          <Subheading>Deixe seu comentário sobre o post:</Subheading>
+          <Textarea required rows={8} name="text" placeholder="Digite aqui..." />
+          <div className={styles.footer}>
             <SubmitButton>
-              Comment
+              Comentar
             </SubmitButton>
           </div>
-        </form >
+        </form>
       </Modal>
-      <IconButton onClick={() => modalRef.current.openModal()}>
+      <IconButton
+        onClick={() => modalRef.current.openModal()}
+      >
         <Chat />
       </IconButton>
     </>

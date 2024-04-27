@@ -1,9 +1,3 @@
-
-.dialog::backdrop {
-  background-color: #171D1F;
-  opacity: 0.8;
-}
-
 .dialog {
   border-radius: 32px;
   background: #3E3E3F;

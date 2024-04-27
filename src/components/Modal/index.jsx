@@ -3,7 +3,7 @@
 import { forwardRef, useImperativeHandle, useRef } from "react"
 import styles from './modal.module.css'
 
-const Modal = forwardRef(({ children}, ref) => {
+export const Modal = forwardRef(({ children}, ref) => {
 
   const dialogRef = useRef(null)
 
@@ -33,5 +33,3 @@ const Modal = forwardRef(({ children}, ref) => {
     </dialog>
   )
 })
-
-export default Modal
