@@ -26,7 +26,7 @@ async function getAllPosts(page, searchTerm) {
       take: perPage,
       skip,
       where,
-      orderBy: { createdAt: 'desc' },
+      orderBy: { id: 'desc' },
       include: {
         author: true
       }
@@ -47,6 +47,7 @@ export default async function Home({ searchParams }) {
   return (
     <>
       <main>
+       
         <div className="main-container">
           {posts.map(post => <CardPost key={post.id} post={post} />)}
         </div>

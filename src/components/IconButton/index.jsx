@@ -1,4 +1,4 @@
-import { styles } from './iconButton.module.css'
+import styles from './iconButton.module.css'
 
 export const IconButton = ({ children, ...rest }) => {
   return (

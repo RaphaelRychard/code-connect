@@ -1,12 +1,15 @@
 import style from './cardpost.module.css'
-
 import Image from "next/image"
 import { Avatar } from "../Avatar"
 import Link from 'next/link'
-import { IconButton } from '../IconButton'
-import ThumbsUp from '../icons/ThumbsUp'
+
+import { incrementThumbsUp } from '@/actions'
+import { ThumbsUpButton } from './ThumbsUpButton'
 
 export const CardPost = ({ post }) => {
+
+  const submitThumbsUp = incrementThumbsUp.bind(null, post);
+
   return (
     <div className={style.cardEffects}>
       <article className={style.card}>
@@ -30,12 +33,10 @@ export const CardPost = ({ post }) => {
         </section>
         <footer className={style.footer}>
           <div>
-            <form>
-              <IconButton>
-                <ThumbsUp />
-              </IconButton>
+            <form action={submitThumbsUp}>
+                <ThumbsUpButton />
             </form>
-            <p>
+            <p style={{color: 'white'}}>
               {post.like}
             </p>
           </div>
@@ -43,7 +44,6 @@ export const CardPost = ({ post }) => {
             imageSrc={post.author.avatar}
             name={post.author.username}
           />
-
         </footer>
       </article>
     </div>

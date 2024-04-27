@@ -34,7 +34,7 @@ model Post {
   authorId  Int
   author    User      @relation(fields: [authorId], references: [id])
   Comment   Comment[]
-  likes     Int       @default(0)
+  like     Int       @default(0)
 }
 
 model Comment {

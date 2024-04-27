@@ -41,11 +41,19 @@
 
 .footer {
   padding: 16px;
+  display: flex;
+  justify-content: space-between;
+
+  & p {
+    margin: 0;
+    color: #888 !important;
+    font-size: 15px;
+    text-align: center;
+  }
 }
 
 .cardEffects {
   text-decoration: none;
-  cursor: pointer;
   transition: all linear 120ms;
   
   opacity: 80%;
