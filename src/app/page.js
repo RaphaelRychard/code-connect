@@ -3,7 +3,6 @@ import { CardPost } from '@/components/CardPost';
 import './globals.css'
 import Link from 'next/link';
 import schema from '../../prisma/db';
-import Modal from '@/components/Modal';
 
 async function getAllPosts(page, searchTerm) {
   try {

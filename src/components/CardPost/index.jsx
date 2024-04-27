@@ -7,7 +7,7 @@ import { incrementThumbsUp } from '@/actions'
 import { ThumbsUpButton } from './ThumbsUpButton'
 import { ModalComment } from '../ModalComment'
 
-const CardPost = ({ post }) => {
+export const CardPost = ({ post }) => {
 
   const submitThumbsUp = incrementThumbsUp.bind(null, post);
 
@@ -56,5 +56,3 @@ const CardPost = ({ post }) => {
     </div>
   )
 }
-
-export default CardPost;
