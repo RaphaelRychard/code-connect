@@ -116,14 +116,20 @@ async function main() {
     }
   ];
 
-  posts.forEach(async (post) => {
-    await prisma.post.upsert({
-      where: { slug: post.slug },
-      update: {},
-      create: post
-    })
-  })
-  
+  for (const post of posts) {
+    try {
+      await prisma.post.upsert({
+        where: { slug: post.slug },
+        update: {},
+        create: post
+      });
+      console.log(`Post with slug "${post.slug}" upserted successfully.`);
+    } catch (error) {
+      console.error(`Failed to upsert post with slug "${post.slug}":`, error);
+    }
+  }
+
+
   console.log('Seed OK');
 }
 
