@@ -12,13 +12,11 @@
 
 .header figure {
   margin: 0;
-
- 
 }
 
 .body {
   color: #BCBCBC;
-  padding: 16px;
+  padding: 10px 16px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -45,22 +43,36 @@
   padding: 16px;
 }
 
-.link {
+.cardEffects {
   text-decoration: none;
   cursor: pointer;
   transition: all linear 120ms;
   
-  &:hover {
-    transform: scale(103%);
-  }
-
-  &:active {
-    transform: scale(97%);
-  }
-
   opacity: 80%;
-  
+
   &:hover {
     opacity: 100%;
+  }
+}
+
+.link {
+  padding: 10px 20px;
+
+  & a {
+    color: #81fe87b0;
+
+    &:hover {
+      color: #81FE88;
+    }
+  
+    &:active {
+      transform: scale(97%);
+    }
+  
+    opacity: 80%;
+    
+    &:hover {
+      opacity: 100%;
+    }
   }
 }
