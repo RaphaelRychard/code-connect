@@ -13,9 +13,9 @@ async function main() {
     where: { username: author.username },
     update: {},
     create: author,
-  });
+  })
 
-  console.log('Author created', ana);
+  console.log('Author created', ana)
 
   const posts = [
     {
@@ -116,23 +116,16 @@ async function main() {
     }
   ];
 
-  for (const post of posts) {
-    try {
-      await prisma.post.upsert({
-        where: { slug: post.slug },
-        update: {},
-        create: post
-      });
-      console.log(`Post with slug "${post.slug}" upserted successfully.`);
-    } catch (error) {
-      console.error(`Failed to upsert post with slug "${post.slug}":`, error);
-    }
-  }
+  posts.forEach(async (post) => {
+    await prisma.post.upsert({
+      where: { slug: post.slug },
+      update: {},
+      create: post
+    })
+  })
 
-
-  console.log('Seed OK');
+  console.log('Seed OK')
 }
-
 main()
   .then(async () => {
     await prisma.$disconnect()
