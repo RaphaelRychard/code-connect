@@ -2,14 +2,24 @@
   box-sizing: border-box;
   border: none;
   outline: none;
+
 }
 
 body {
   background: linear-gradient(180deg, #0E1112 0%, #00090E 100%);
-  padding: 0;
-  margin: 0;
   min-height: 100vh;
   color: white;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  list-style-type: none;
+  list-style-position: none;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .aside-container {
@@ -47,7 +57,6 @@ body {
   margin-top: 40px;
   display: block;
   text-decoration: none;
-
 }
 
 .links_next {

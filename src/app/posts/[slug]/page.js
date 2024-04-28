@@ -14,6 +14,7 @@ import { redirect } from 'next/navigation';
 import { incrementThumbsUp, postComment } from '@/actions'
 import { ThumbsUpButton } from '@/components/CardPost/ThumbsUpButton';
 import { ModalComment } from '@/components/ModalComment';
+import { CommentList } from '@/components/CommentList';
 
 
 async function getPostBySlug(slug) {
@@ -25,7 +26,11 @@ async function getPostBySlug(slug) {
       },
       include: {
         author: true,
-        comments: true
+        comments: {
+          include: {
+            author: true
+          }
+        }
       }
     })
 
@@ -108,6 +113,9 @@ const PagePost = async ({ params }) => {
             <div dangerouslySetInnerHTML={{ __html: post.markdown }} />
           </pre>
         </section>
+        <div>
+          <CommentList comments={post.comments} />
+        </div>
       </div>
     </>
   )

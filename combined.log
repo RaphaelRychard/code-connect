@@ -123,3 +123,23 @@
 {"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
 {"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
 {"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{},"level":"error","message":"Falha ao objter o post com slug: ","slug":"explorando-flexbox-no-css"}
+{"error":{},"level":"error","message":"Falha ao objter o post com slug: ","slug":"explorando-flexbox-no-css"}
+{"error":{},"level":"error","message":"Falha ao objter o post com slug: ","slug":"explorando-flexbox-no-css"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter o post com slug: ","slug":"otimizacao-de-performance-no-react"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","name":"PrismaClientInitializationError"},"level":"error","message":"Falha ao objter posts"}
+{"error":{"clientVersion":"5.12.1","code":"P2037","meta":{"message":"FATAL: sorry, too many clients already","modelName":"Post"},"name":"PrismaClientKnownRequestError"},"level":"error","message":"Falha ao objter o post com slug: ","slug":"explorando-flexbox-no-css"}
