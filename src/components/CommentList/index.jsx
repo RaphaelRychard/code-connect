@@ -11,9 +11,11 @@ export const CommentList = ({ comments }) => {
       <ul>
         {comments.map(comment => <li key={comment.id}>
           <Comment comment={comment} key={comment.id} />
+          <strong>responder</strong>
           <Replies />
         </li>)}
       </ul>
+
     </section>
   )
 }
