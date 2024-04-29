@@ -12,7 +12,7 @@ export async function incrementThumbsUp(post) {
       id: post.id
     },
     data: {
-      likes: {
+      like: {
         increment: 1
       }
     }
