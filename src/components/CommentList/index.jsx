@@ -1,5 +1,7 @@
 import { Comment } from "../Comment"
 import { Replies } from "../Replies"
+import { ReplyModal } from "../ReplyModal"
+
 import styles from './commentlist.module.css'
 
 export const CommentList = ({ comments }) => {
@@ -9,13 +11,12 @@ export const CommentList = ({ comments }) => {
         Comentários
       </h2>
       <ul>
-        {comments.map(comment => <li key={comment.id}>
+        {comments.map(comment => <li>
           <Comment comment={comment} key={comment.id} />
-          <strong>responder</strong>
+          <ReplyModal comment={comment} />
           <Replies />
         </li>)}
       </ul>
-
     </section>
   )
 }

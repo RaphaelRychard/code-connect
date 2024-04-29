@@ -2,7 +2,6 @@
   background-color: #888;
   padding: 32px 16px;
   margin-top: 20px;
-  color: #171D1F;
   border-radius: 8px;
 }
 
@@ -20,7 +19,7 @@
   border-bottom: 1px solid black;
 }
 
-.comments h2 {
+.comment_subtitle {
   color: #171D1F;
   font-size: 22px;
   font-style: normal;

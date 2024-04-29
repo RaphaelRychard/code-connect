@@ -2,7 +2,10 @@
   box-sizing: border-box;
   border: none;
   outline: none;
+}
 
+header, figure, figcaption{
+  margin: 0;
 }
 
 body {

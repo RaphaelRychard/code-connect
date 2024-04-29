@@ -1,4 +1,4 @@
 import { PrismaClient } from '@prisma/client'
-const schema = new PrismaClient()
+const db = new PrismaClient()
 
-export default schema;
+export default db;

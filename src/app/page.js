@@ -2,7 +2,7 @@ import logger from '@/logger';
 import { CardPost } from '@/components/CardPost';
 import './globals.css'
 import Link from 'next/link';
-import schema from '../../prisma/db';
+import db from '../../prisma/db';
 
 async function getAllPosts(page, searchTerm) {
   try {
@@ -18,11 +18,11 @@ async function getAllPosts(page, searchTerm) {
 
     const perPage = 4;
     const skip = (page - 1) * perPage
-    const totalItems = await schema.post.count({ where })
+    const totalItems = await db.post.count({ where })
     const totalPages = Math.ceil(totalItems / perPage)
     const prev = page > 1 ? page - 1 : null;
     const next = page < totalPages ? page + 1 : null;
-    const posts = await schema.post.findMany({
+    const posts = await db.post.findMany({
       take: perPage,
       skip,
       where,

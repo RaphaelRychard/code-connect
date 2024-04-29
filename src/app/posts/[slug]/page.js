@@ -8,19 +8,20 @@ import { Avatar } from '@/components/Avatar';
 
 import style from './slug.module.css'
 
-import schema from '../../../../prisma/db';
+import db from '../../../../prisma/db';
 import { redirect } from 'next/navigation';
 
-import { incrementThumbsUp, postComment } from '@/actions'
+import { incrementThumbsUp, postComment, postReply } from '@/actions'
 import { ThumbsUpButton } from '@/components/CardPost/ThumbsUpButton';
 import { ModalComment } from '@/components/ModalComment';
 import { CommentList } from '@/components/CommentList';
+import { ModalReply } from '@/components/ReplyModal';
 
 
 async function getPostBySlug(slug) {
 
   try {
-    const post = await schema.post.findFirst({
+    const post = await db.post.findFirst({
       where: {
         slug
       },
@@ -59,11 +60,11 @@ const PagePost = async ({ params }) => {
 
   const submitThumbsUp = incrementThumbsUp.bind(null, post);
   const submitComment = postComment.bind(null, post);
+  const submitReply = postReply.bind(null, post, post.id);
 
   return (
     <>
       <div className={style.container}>
-
         <article className={style.article}>
           <header className={style.header}>
             <figure className={style.figure}>
@@ -114,7 +115,9 @@ const PagePost = async ({ params }) => {
           </pre>
         </section>
         <div>
-          <CommentList comments={post.comments} />
+          <CommentList comments={post.comments}>
+            <ModalReply comments={submitReply} />
+          </CommentList>
         </div>
       </div>
     </>

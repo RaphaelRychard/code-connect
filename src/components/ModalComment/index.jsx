@@ -26,9 +26,7 @@ export const ModalComment = ({ action }) => {
           </div>
         </form>
       </Modal>
-      <IconButton
-        onClick={() => modalRef.current.openModal()}
-      >
+      <IconButton onClick={() => modalRef.current.openModal()}>
         <Chat />
       </IconButton>
     </>

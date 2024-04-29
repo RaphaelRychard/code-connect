@@ -7,3 +7,7 @@
 .comment p {
   margin: 0;
 }
+
+.comment p, .comment strong {
+  color: #171D1F;
+}
